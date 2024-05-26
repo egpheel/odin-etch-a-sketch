@@ -1,15 +1,21 @@
 const container = document.querySelector(".container");
+const newGridBtn = document.querySelector(".new-grid-btn");
 
-const gridSizeX = 16;
-const gridSizeY = 16;
+newGridBtn.addEventListener("click", () => {
+  createGrid(prompt("How many squares per side?"));
+});
 
-const createGrid = () => {
-  for (y = 0; y < gridSizeY; y++) {
+const createGrid = (gridSize) => {
+  while (container.firstChild) {
+    container.removeChild(container.lastChild);
+  }
+
+  for (y = 0; y < gridSize; y++) {
     const row = document.createElement("div");
 
     row.classList.add("row");
 
-    for (x = 0; x < gridSizeX; x++) {
+    for (x = 0; x < gridSize; x++) {
       const col = document.createElement("div");
       const square = document.createElement("div");
 
@@ -31,4 +37,4 @@ const addHover = (element) => {
   });
 };
 
-createGrid();
+createGrid(16);
