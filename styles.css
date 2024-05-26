@@ -1,6 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
+  border: 1px solid black;
 }
 
 .row {
@@ -9,8 +10,6 @@
 }
 
 .square {
-  width: 10px;
-  height: 10px;
   background-color: white;
 }
 

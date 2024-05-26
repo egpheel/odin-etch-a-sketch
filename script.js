@@ -1,19 +1,26 @@
 const container = document.querySelector(".container");
 const newGridBtn = document.querySelector(".new-grid-btn");
 
+const gridWidthInPx = 960;
+
 newGridBtn.addEventListener("click", () => {
   createGrid(prompt("How many squares per side?"));
 });
 
 const createGrid = (gridSize) => {
-  while (container.firstChild) {
-    container.removeChild(container.lastChild);
-  }
-
   if (gridSize > 100) {
     gridSize = 100;
   } else if (gridSize < 0) {
     gridSize = 0;
+  }
+
+  const squareSize = gridWidthInPx / gridSize;
+
+  container.style["width"] = gridWidthInPx + "px";
+  container.style["height"] = gridWidthInPx + "px";
+
+  while (container.firstChild) {
+    container.removeChild(container.lastChild);
   }
 
   for (y = 0; y < gridSize; y++) {
@@ -27,6 +34,8 @@ const createGrid = (gridSize) => {
 
       col.classList.add("col");
       square.classList.add("square");
+      square.style["width"] = squareSize + "px";
+      square.style["height"] = squareSize + "px";
 
       addHover(square);
 
