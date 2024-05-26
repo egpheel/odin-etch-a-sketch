@@ -10,6 +10,12 @@ const createGrid = (gridSize) => {
     container.removeChild(container.lastChild);
   }
 
+  if (gridSize > 100) {
+    gridSize = 100;
+  } else if (gridSize < 0) {
+    gridSize = 0;
+  }
+
   for (y = 0; y < gridSize; y++) {
     const row = document.createElement("div");
 
