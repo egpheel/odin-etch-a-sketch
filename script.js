@@ -36,6 +36,7 @@ const createGrid = (gridSize) => {
       square.classList.add("square");
       square.style["width"] = squareSize + "px";
       square.style["height"] = squareSize + "px";
+      square.style["opacity"] = 0;
 
       addHover(square);
 
@@ -49,6 +50,7 @@ const createGrid = (gridSize) => {
 const addHover = (element) => {
   element.addEventListener("mouseover", () => {
     element.classList.add("hover");
+    element.style["opacity"] -= "-0.1";
   });
 };
 
