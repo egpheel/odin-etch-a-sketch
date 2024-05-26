@@ -16,11 +16,19 @@ const createGrid = () => {
       col.classList.add("col");
       square.classList.add("square");
 
+      addHover(square);
+
       col.appendChild(square);
       row.appendChild(col);
     }
     container.appendChild(row);
   }
+};
+
+const addHover = (element) => {
+  element.addEventListener("mouseover", () => {
+    element.classList.add("hover");
+  });
 };
 
 createGrid();

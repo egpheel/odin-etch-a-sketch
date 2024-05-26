@@ -11,8 +11,9 @@
 .square {
   width: 40px;
   height: 40px;
+  background-color: white;
 }
 
-.square:hover {
+.hover {
   background-color: black;
 }
